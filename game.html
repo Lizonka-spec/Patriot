@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тест-игра "Памятники Беларуси"</title>
+</head>
+<body>
+  <div class="game-wrapper" id="gameWrapper">
+    <div class="puzzle-container">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="0">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="1">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="2">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="3">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="4">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="5">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="6">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="7">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="8">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="9">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="10">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="11">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="12">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="13">
+      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="14">
+    </div>
+
+    <div class="quiz-container">
+      <h2 class="question-text"></h2>
+      <p class="question-counter"></p>
+
+      <div class="answer-input-display">
+      </div>
+
+      <div class="attempts-display">
+        Попыток осталось: <span class="attempts-count">3</span>
+      </div>
+
+      <div class="alphabet-container">
+      </div>
+
+      <p class="feedback-message"></p>
+
+      <div class="quiz-controls">
+        <button class="check-answer-btn">Проверить ответ</button>
+        <button class="next-btn" disabled>Следующий вопрос</button>
+        <a href="./main-menu.html" class="back-to-main">Вернуться на главную</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="emptyAnswerModal">
+    <div class="modal-content">
+      <h3>Внимание!</h3>
+      <p>Пожалуйста, введите ответ, используя кнопки алфавита.</p>
+      <button class="modal-close-btn">ОК</button>
+    </div>
+  </div>
+
+   <div class="modal" id="victoryModal">
+    <div class="modal-content">
+      <h3>Поздравляем!</h3>
+      <p>Вы успешно собрали всю картину и ответили на все вопросы!</p>
+      <img src="" alt="Полная картина" class="final-puzzle-image">
+      <button class="restart-btn">Начать заново</button>
+      <a href="./main-menu.html" class="back-to-main">Вернуться на главную</a>
+    </div>
+  </div>
+
+  <script type="module" src="/src/scripts/game.js"></script>
+</body>
+
+</html>

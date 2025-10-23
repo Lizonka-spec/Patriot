@@ -1,0 +1,38 @@
+@import 'variables';
+
+:global(.puzzle-container) {
+  width: 49%;
+  background-color: $card-background;
+  padding: $spacing-l;
+  border-radius: $border-radius-card;
+  box-shadow: $box-shadow-base;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: $spacing-xs;
+  overflow-y: auto;
+  flex-grow: 1.5;
+  min-height: 0;
+}
+
+:global(.puzzle-image) {
+  width: calc(17.666% - #{$spacing-xs * 5 / 6}); 
+  height: auto;
+  border-radius: $border-radius-base;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+:global(.puzzle-image.hidden) {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+:global(.puzzle-image:not(.hidden)) {
+  opacity: 1;
+  height: auto;
+}

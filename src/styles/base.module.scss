@@ -1,0 +1,30 @@
+@import 'variables';
+
+:global(html, body) {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+:global(body) {
+  font-family: $font-family-base;
+  background-color: $background-color;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  color: $text-color-dark;
+  padding: $spacing-l;
+}
+
+:global(.game-wrapper) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}

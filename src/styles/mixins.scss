@@ -1,0 +1,22 @@
+@import 'variables';
+
+@mixin button-base($bg-color, $text-color: white) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  padding: 12px 25px;
+  border-radius: $border-radius-base;
+  font-size: $font-size-button;
+  cursor: pointer;
+  transition: background-color $transition-speed $transition-timing, transform $transition-speed $transition-timing;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    background-color: $disabled-color;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}

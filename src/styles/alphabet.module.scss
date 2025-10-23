@@ -1,0 +1,31 @@
+:global(.alphabet-container) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+:global(.alphabet-btn) {
+  background-color: #fc5c00;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  min-width: 45px;
+  text-transform: uppercase;
+}
+
+:global(.alphabet-btn:hover:not(:disabled)) {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+:global(.alphabet-btn:disabled) {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

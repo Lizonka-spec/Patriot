@@ -1,0 +1,78 @@
+@import 'variables';
+
+:global(html, body) {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+:global(body) {
+  font-family: $font-family-base;
+  background-color: $background-color;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  color: $text-color-dark;
+  padding: $spacing-l;
+}
+
+:global(.game-wrapper) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  box-sizing: border-box;
+  display: none;
+}
+
+:global(.modal) {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+:global(.modal.active) {
+  display: flex;
+}
+
+:global(.final-puzzle-image) {
+  max-width: 100%;
+  height: auto;
+  border-radius: $border-radius-base;
+  margin-bottom: $spacing-l;
+}
+
+:global(.modal-content) {
+  background-color: $card-background;
+  margin: auto;
+  padding: $spacing-xxl;
+  border-radius: $border-radius-base;
+  box-shadow: $box-shadow-modal;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+
+  h3 {
+    color: $text-color-dark;
+    margin-bottom: $spacing-l;
+    font-size: 1.6em;
+  }
+
+  p {
+    font-size: $font-size-feedback;
+    color: $text-color-medium;
+    margin-bottom: $spacing-xl;
+  }
+}

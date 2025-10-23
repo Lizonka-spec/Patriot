@@ -1,0 +1,169 @@
+@import 'variables';
+
+:global(.quiz-container) {
+  width: 72%;
+  background-color: $card-background;
+  padding: $spacing-l;
+  border-radius: $border-radius-card;
+  box-shadow: $box-shadow-base;
+  text-align: center;
+  margin-top: $spacing-l;
+  flex-grow: 1;
+  min-height: 0;
+  overflow-y: auto;@import 'variables';
+
+:global(.quiz-container) {
+  width: 72%;
+  max-width: 900px;
+  background-color: $card-background;
+  padding: $spacing-l;
+  border-radius: $border-radius-card;
+  box-shadow: $box-shadow-base;
+  text-align: center;
+  margin-top: $spacing-l;
+  flex-grow: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+:global(h2) {
+  color: $text-color-dark;
+  margin-bottom: $spacing-m;
+  font-size: $font-size-h2;
+}
+
+:global(.question-text) {
+  font-size: $font-size-question;
+  margin-bottom: $spacing-s;
+  color: $text-color-medium;
+  min-height: 50px;
+}
+
+:global(.question-counter) {
+  font-size: 0.9em;
+  color: $text-color-light;
+  margin-bottom: $spacing-xl;
+}
+
+:global(.answer-input-display) {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: $spacing-s; 
+  margin-bottom: $spacing-s;
+  min-height: 40px;
+}
+
+:global(.answer-input-display span) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 55px;
+  border-bottom: 2px solid $primary-color;
+  font-size: $font-size-answer-char; 
+  font-weight: $font-weight-bold;
+  color: $text-color-dark;
+  text-transform: uppercase;
+}
+
+:global(.attempts-display) {
+  font-size: $font-size-feedback;
+  color: $error-color;
+  margin-bottom: $spacing-l;
+  font-weight: $font-weight-bold;
+}
+
+:global(.feedback-message) {
+  font-size: $font-size-feedback;
+  margin-top: $spacing-m;
+  min-height: 25px;
+  font-weight: $font-weight-bold;
+}
+
+:global(.feedback-message.correct) {
+  color: $success-color;
+}
+
+:global(.feedback-message.incorrect) {
+  color: $error-color;
+}
+
+:global(.quiz-controls) {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-m;
+  margin-top: $spacing-m;
+}
+
+}
+
+:global(h2) {
+  color: $text-color-dark;
+  margin-bottom: $spacing-m;
+  font-size: $font-size-h2;
+}
+
+:global(.question-text) {
+  font-size: $font-size-question;
+  margin-bottom: $spacing-l;
+  color: $text-color-medium;
+  min-height: 50px;
+}
+
+:global(.question-counter) {
+  font-size: 0.9em;
+  color: $text-color-light;
+  margin-bottom: $spacing-xl;
+}
+
+:global(.answer-input-display) {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: $spacing-m;
+  margin-bottom: $spacing-xxl;
+  min-height: 40px;
+}
+
+:global(.answer-input-display span) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 45px;
+  border-bottom: 2px solid $primary-color;
+  font-size: $font-size-answer-char;
+  font-weight: $font-weight-bold;
+  color: $text-color-dark;
+  text-transform: uppercase;
+}
+
+:global(.attempts-display) {
+  font-size: $font-size-feedback;
+  color: $error-color;
+  margin-bottom: $spacing-l;
+  font-weight: $font-weight-bold;
+}
+
+:global(.feedback-message) {
+  font-size: $font-size-feedback;
+  margin-top: $spacing-m;
+  min-height: 25px;
+  font-weight: $font-weight-bold;
+}
+
+:global(.feedback-message.correct) {
+  color: $success-color;
+}
+
+:global(.feedback-message.incorrect) {
+  color: $error-color;
+}
+
+:global(.quiz-controls) {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-m;
+  margin-top: $spacing-xxl;
+}

@@ -1,5 +1,5 @@
 import * as DOM from './domElements.js';
-import { finalPuzzleImagePath } from './questions.js';
+import * as GameState from './gameState.js';
 import * as Modals from './modals.js';
 import '../styles/quiz.module.scss';
 import '../styles/puzzle.module.scss';
@@ -15,13 +15,13 @@ export function renderAnswerDisplay(answerState) {
   DOM.answerInputDisplay.innerHTML = '';
   answerState.forEach(char => {
     const span = document.createElement('span');
-    span.textContent = char === ' ' ? ' ' : char;
+    span.textContent = char === '_' ? ' ' : char;
     DOM.answerInputDisplay.appendChild(span);
   });
 }
 
 export function updateAttemptsDisplay(attempts) {
-  DOM.attemptsDisplay.textContent = attempts;
+  DOM.attemptsCount.textContent = attempts;
 }
 
 export function showFeedback(message, type) {
@@ -36,51 +36,52 @@ export function clearFeedback() {
 }
 
 export function updateCheckAnswerButtonState(disabled) {
-  DOM.checkAnswerBtn.disabled = disabled;
+  if (DOM.checkAnswerBtn) DOM.checkAnswerBtn.disabled = disabled;
 }
 
 export function updateNextButtonState(disabled) {
-  DOM.nextButton.disabled = disabled;
+  if (DOM.nextButton) DOM.nextButton.disabled = disabled;
 }
 
 export function updatePuzzle(allQuestions, masteredQuestionsSet) {
-  DOM.puzzleImages.forEach((img, originalIndex) => {
-    const question = allQuestions[originalIndex];
+    const totalParts = GameState.getTotalPuzzleParts();
     
-    if (!question) {
-        img.classList.add('hidden');
-        return;
-    }
+    DOM.puzzleImages.forEach((img, index) => {
+        if (index >= totalParts) {
+            img.classList.add('hidden');
+            return;
+        }
+        
+        const questionData = allQuestions[index]; 
+        const isStreetPuzzle = questionData.type === 'street'; 
 
-    if (masteredQuestionsSet.has(question.question)) {
-      img.src = question.imagePath;
-      img.classList.remove('hidden');
-    } else {
-      img.classList.add('hidden');
-    }
-  });
+        if (isStreetPuzzle) {
+            img.classList.add('street-puzzle-image');
+            img.classList.remove('puzzle-image');
+        } else {
+            img.classList.add('puzzle-image');
+            img.classList.remove('street-puzzle-image');
+        }
+        
+        if (masteredQuestionsSet.has(questionData)) {
+            img.src = questionData.imagePath; 
+            img.classList.remove('hidden');
+        } else {
+            img.classList.add('hidden');
+        }
+    });
 }
 
+
 export function showVictoryScreen() {
-  Modals.showVictoryModal(finalPuzzleImagePath);
+  const finalPath = GameState.getFinalImagePath();
+  Modals.showVictoryModal(finalPath);
 }
 
 export function showQuizScreen() {
-  DOM.quizContainer.style.display = 'block';
-  console.log('UIRenderer: quizContainer shown.');
+  if (DOM.quizContainer) DOM.quizContainer.classList.remove('hidden'); 
 }
 
 export function hideQuizScreen() {
-  DOM.quizContainer.style.display = 'none';
-  console.log('UIRenderer: quizContainer hidden.');
-}
-
-export function showGameWrapper() {
-  DOM.gameWrapper.style.display = 'flex';
-  console.log('UIRenderer: gameWrapper shown.');
-}
-
-export function hideGameWrapper() {
-  DOM.gameWrapper.style.display = 'none';
-  console.log('UIRenderer: gameWrapper hidden.');
+  if (DOM.quizContainer) DOM.quizContainer.classList.add('hidden');
 }

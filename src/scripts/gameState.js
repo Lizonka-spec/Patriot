@@ -1,4 +1,8 @@
-import { quizQuestions } from './questions.js';
+import { 
+    monumentQuizQuestions, 
+    streetQuizQuestions, 
+    finalMonumentImagePath, 
+} from './questions.js';
 import { shuffleArray } from './utils.js';
 
 let _allQuestions = [];
@@ -9,12 +13,19 @@ let _currentQuestionData = null;
 let _currentAnswerState = []; 
 let _remainingAttempts = 3; 
 let _masteredQuestionsSet = new Set(); 
+let _currentQuizType = ''; 
 
 export const INITIAL_ATTEMPTS = 3;
 
-export function initializeGameState() {
-    _allQuestions = [...quizQuestions]; 
-    _questionQueue = [...quizQuestions];
+export function initializeGameState(quizType) {
+    _currentQuizType = quizType;
+    
+    const questionsSource = (quizType === 'streets') 
+        ? streetQuizQuestions 
+        : monumentQuizQuestions;
+
+    _allQuestions = [...questionsSource]; 
+    _questionQueue = [...questionsSource];
     shuffleArray(_questionQueue);
 
     _incorrectlyAnsweredQuestions = [];
@@ -38,50 +49,37 @@ export function getNextQuestionData() {
     }
 
     _currentQuestionData = _questionQueue[_currentQuestionIndexInQueue];
-    _currentAnswerState = Array(_currentQuestionData.answer.length).fill('_ ');
+    _currentAnswerState = Array(_currentQuestionData.answer.length).fill('_');
     _remainingAttempts = INITIAL_ATTEMPTS;
     return _currentQuestionData;
 }
 
-export function getCurrentQuestion() {
-    return _currentQuestionData;
+export function getCurrentQuestion() { return _currentQuestionData; }
+export function getCurrentAnswerState() { return _currentAnswerState; }
+export function getRemainingAttempts() { return _remainingAttempts; }
+export function getQuestionQueueLength() { return _questionQueue.length; }
+export function getCurrentQuestionIndexInQueue() { return _currentQuestionIndexInQueue; }
+export function getAllQuestions() { return _allQuestions; }
+export function getMasteredQuestionsSet() { return _masteredQuestionsSet; }
+export function getCurrentQuizType() { return _currentQuizType; }
+
+export function getTotalPuzzleParts() {
+    return _allQuestions.length; 
 }
 
-export function getCurrentAnswerState() {
-    return _currentAnswerState;
+export function getFinalImagePath() {
+    return finalMonumentImagePath; 
 }
 
-export function getRemainingAttempts() {
-    return _remainingAttempts;
-}
 
-export function getQuestionQueueLength() {
-    return _questionQueue.length;
-}
 
-export function getCurrentQuestionIndexInQueue() {
-    return _currentQuestionIndexInQueue;
-}
+export function decrementAttempts() { _remainingAttempts--; }
 
-export function getAllQuestions() {
-    return _allQuestions;
-}
-
-export function getMasteredQuestionsSet() {
-    return _masteredQuestionsSet;
-}
-
-export function decrementAttempts() {
-    _remainingAttempts--;
-}
-
-export function updateAnswerState(index, char) {
-    _currentAnswerState[index] = char;
-}
+export function updateAnswerState(index, char) { _currentAnswerState[index] = char; }
 
 export function markQuestionAsMastered() {
-    if (_currentQuestionData && !_masteredQuestionsSet.has(_currentQuestionData.question)) {
-        _masteredQuestionsSet.add(_currentQuestionData.question);
+    if (_currentQuestionData && !_masteredQuestionsSet.has(_currentQuestionData)) {
+        _masteredQuestionsSet.add(_currentQuestionData);
         return true;
     }
     return false;
@@ -93,10 +91,6 @@ export function addQuestionToIncorrectQueue(questionData) {
     }
 }
 
-export function advanceQuestionInQueue() {
-    _currentQuestionIndexInQueue++;
-}
+export function advanceQuestionInQueue() { _currentQuestionIndexInQueue++; }
 
-export function setFullAnswerState(answer) {
-    _currentAnswerState = answer.split('');
-}
+export function setFullAnswerState(answer) { _currentAnswerState = answer.split(''); }

@@ -15,7 +15,9 @@
   flex-grow: 1.5;
   min-height: 0;
 }
-
+:global(.hidden) {
+  display: none !important;
+}
 :global(.puzzle-image) {
   width: calc(17.666% - #{$spacing-xs * 5 / 6}); 
   height: auto;
@@ -23,6 +25,15 @@
   object-fit: cover;
   transition: opacity 0.5s ease;
 }
+
+:global(.street-puzzle-image) {
+  width: calc(33.666% - #{$spacing-xs * 5 / 6});
+  height: auto;
+  border-radius: $border-radius-base;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
 
 :global(.puzzle-image.hidden) {
   opacity: 0;

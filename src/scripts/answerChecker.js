@@ -34,7 +34,7 @@ export function handleAlphabetButtonClick(letter, button) {
         UIRenderer.showFeedback(`Символ "${clickedLetter}" найден!`, 'correct');
     }
 
-    if (GameState.getCurrentAnswerState().join('') === answer) {
+    if (GameState.getCurrentAnswerState().join('') === answer.replace(/\s/g, '_')) {
         handleCorrectAnswer();
     }
 }
@@ -53,7 +53,7 @@ export function handleCheckAnswer() {
 
     if (userAnswer.toUpperCase() === correctAnswer.toUpperCase()) {
         GameState.setFullAnswerState(currentQuestion.answer);
-           UIRenderer.renderAnswerDisplay(GameState.getCurrentAnswerState());
+        UIRenderer.renderAnswerDisplay(GameState.getCurrentAnswerState());
         handleCorrectAnswer();
     } else {
         GameState.decrementAttempts();
@@ -74,17 +74,19 @@ function handleCorrectAnswer() {
 
     if (GameState.markQuestionAsMastered()) {
         UIRenderer.updatePuzzle(GameState.getAllQuestions(), GameState.getMasteredQuestionsSet());
+        
+        if (GameState.getMasteredQuestionsSet().size === GameState.getTotalPuzzleParts()) {
+            UIRenderer.showVictoryScreen();
+        }
     }
     GameState.advanceQuestionInQueue();
 }
 
 function handleOutOfAttempts() {
-    const currentQuestion = GameState.getCurrentQuestion();
-    UIRenderer.showFeedback(`Попытки закончились. Правильный ответ: "${currentQuestion.answer}"`, 'incorrect');
+    UIRenderer.showFeedback(`Попытки закончились. Ответ был: ${GameState.getCurrentQuestion().answer}`, 'incorrect');
     AlphabetInput.disableAlphabetButtons();
     UIRenderer.updateCheckAnswerButtonState(true);
     UIRenderer.updateNextButtonState(false);
-
-    GameState.addQuestionToIncorrectQueue(currentQuestion);
     GameState.advanceQuestionInQueue();
+    GameState.addQuestionToIncorrectQueue(GameState.getCurrentQuestion());
 }

@@ -1,6 +1,5 @@
 import '../styles/base.module.scss';
 import '../styles/buttons.module.scss';
-// import '../styles/startScreen.module.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
     const startScreen = document.getElementById('startScreen');
@@ -8,4 +7,3 @@ document.addEventListener('DOMContentLoaded', () => {
         startScreen.classList.remove('is-loading');
     }
 });
-

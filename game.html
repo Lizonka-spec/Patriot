@@ -4,10 +4,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/styles/game.scss">
   <title>Тест-игра "Памятники Беларуси"</title>
 </head>
 <body>
-  <div class="game-wrapper" id="gameWrapper">
+  <div id="game-select-screen" class="screen">
+        <div class="select-content">
+            <h1>Выберите раздел для игры</h1>
+            <div class="menu-options">
+                <div class="menu-item">
+                    <h2>Раздел 1: Обелиски и Памятники</h2>
+                    <p>Соберите картину, посвященную мемориалам Минска.</p>
+                    <button class="start-quiz-button" data-quiz-type="monuments">Начать игру</button>
+                </div>
+
+                <div class="menu-item">
+                    <h2>Раздел 2: Их именами названы улицы</h2>
+                    <p>Узнайте о выдающихся личностях, чьи имена носят улицы Минска.</p>
+                    <button class="start-quiz-button" data-quiz-type="streets">Начать игру</button>
+                </div>
+            </div>
+            <a href="./main-menu.html" class="back-link">Вернуться на главную</a>
+        </div>
+    </div>
+  <div class="game-wrapper hidden" id="gameWrapper">
     <div class="puzzle-container">
       <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="0">
       <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="1">

@@ -8,34 +8,41 @@ import '../styles/base.module.scss';
 import '../styles/buttons.module.scss';
 import '../styles/quiz.module.scss';
 import '../styles/puzzle.module.scss';
+import '../styles/streets.module.scss';
 
-function startGame() {
-  console.log('>>> startGame() called. Game is starting immediately.');
+function startGame(quizType) {
 
-  GameState.initializeGameState();
-  UIRenderer.hideQuizScreen();
+  GameState.initializeGameState(quizType); 
+  if (DOM.selectScreen) DOM.selectScreen.classList.add('hidden');
+
+  if (DOM.gameWrapper) DOM.gameWrapper.classList.remove('hidden');
+  
   Modals.hideAllModals();
-  UIRenderer.showGameWrapper();
-  UIRenderer.showQuizScreen();
+  UIRenderer.hideQuizScreen(); 
+  
   UIRenderer.updatePuzzle(GameState.getAllQuestions(), GameState.getMasteredQuestionsSet());
+  UIRenderer.showQuizScreen();
   displayNextQuestion();
-
-  console.log('<<< startGame() finished.');
 }
 
 function displayNextQuestion() {
   const questionData = GameState.getNextQuestionData();
+  
   if (questionData === null) {
-    UIRenderer.showVictoryScreen();
+    if (GameState.getMasteredQuestionsSet().size === GameState.getTotalPuzzleParts()) {
+        UIRenderer.showVictoryScreen();
+    }
     return;
   }
+  
   UIRenderer.renderQuestion(
     questionData,
     GameState.getCurrentQuestionIndexInQueue(),
     GameState.getQuestionQueueLength(),
     GameState.getMasteredQuestionsSet().size,
-    GameState.getAllQuestions().length
+    GameState.getTotalPuzzleParts()
   );
+  
   UIRenderer.renderAnswerDisplay(GameState.getCurrentAnswerState());
   UIRenderer.updateAttemptsDisplay(GameState.getRemainingAttempts());
   UIRenderer.updateCheckAnswerButtonState(false);
@@ -44,26 +51,32 @@ function displayNextQuestion() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('--- DOMContentLoaded fired. Start of initialization for game.html ---');
   DOM.initializeDOMElements(); 
   
-  if (!DOM.gameWrapper) {
-      console.error("Критическая ошибка: DOM.gameWrapper не найден после initializeDOMElements(). Проверьте game.html.");
+  if (!DOM.gameWrapper || !DOM.selectScreen) {
+      console.error("Критическая ошибка: Элементы экранов не найдены.");
       return;
   }
   
-  console.log('DOM-элементы инициализированы. DOM.gameWrapper:', DOM.gameWrapper);
-
-  Modals.hideAllModals();
-  console.log('DECISION: game.html always starts the game directly.');
-  startGame();
+  DOM.selectScreen.classList.remove('hidden'); 
   
-  DOM.nextButton.addEventListener('click', displayNextQuestion);
-  DOM.checkAnswerBtn.addEventListener('click', AnswerChecker.handleCheckAnswer);
-  DOM.modalCloseBtn.addEventListener('click', () => Modals.hideEmptyAnswerModal());
-  DOM.restartButton.addEventListener('click', () => {
-      console.log('User clicked "Начать заново" button. Calling startGame().');
-      startGame(); 
+  DOM.gameWrapper.classList.add('hidden'); 
+  
+  Modals.hideAllModals();
+
+  const startQuizButtons = document.querySelectorAll('.start-quiz-button');
+  startQuizButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const quizType = e.currentTarget.dataset.quizType;
+      startGame(quizType);
+    });
   });
-  console.log('--- DOMContentLoaded finished for game.html ---');
+  
+  if (DOM.nextButton) DOM.nextButton.addEventListener('click', displayNextQuestion);
+  if (DOM.checkAnswerBtn) DOM.checkAnswerBtn.addEventListener('click', AnswerChecker.handleCheckAnswer);
+  if (DOM.modalCloseBtn) DOM.modalCloseBtn.addEventListener('click', () => Modals.hideEmptyAnswerModal());
+  
+  if (DOM.restartButton) DOM.restartButton.addEventListener('click', () => {
+      window.location.reload(); 
+  });
 });

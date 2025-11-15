@@ -1,4 +1,4 @@
-import { monumentData } from "./scripts/LayOut"
+import { listData } from "./scripts/LayOut"
 import { homePageData } from "./scripts/Data"
 
 import appLayoutStyles from './styles/AppLayOut.module.scss';
@@ -28,12 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameLink = document.querySelector('.game-link');
   if (gameLink) gameLink.classList.add(appLayoutStyles.gameLink);
 
-  const monumentDisplay = document.querySelector('.monument-display');
-  if (monumentDisplay) monumentDisplay.classList.add(appLayoutStyles.contentDisplay);
-  const monumentTitle = document.querySelector('.monument-title');
-  const monumentImage = document.querySelector('.monument-image');
-  const monumentDescription = document.querySelector('.monument-description');
-  const monumentLocation = document.querySelector('.monument-location');
+  const listDisplay = document.querySelector('.list-display');
+  if (listDisplay) listDisplay.classList.add(appLayoutStyles.contentDisplay);
+  const listTitle = document.querySelector('.list-title');
+  const listImage = document.querySelector('.list-image');
+  const listDescription = document.querySelector('.list-description');
+  const listLocation = document.querySelector('.list-location');
 
   const homePageDisplay = document.querySelector('.home-page-display');
   if (homePageDisplay) homePageDisplay.classList.add(appLayoutStyles.contentDisplay);
@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const renderHomePage = () => {
     removeActiveClass();
 
-    if (monumentDisplay) monumentDisplay.style.display = 'none';
-    if (monumentImage) monumentImage.style.display = 'none';
+    if (listDisplay) listDisplay.style.display = 'none';
+    if (listImage) listImage.style.display = 'none';
     if (homePageDisplay) homePageDisplay.style.display = 'block';
     if (homePageImage) homePageImage.style.display = 'block'
 
@@ -71,36 +71,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  const renderMonumentPage = (monumentId) => {
+  const renderMonumentPage = (listID) => {
     removeActiveClass();
 
     if (homePageDisplay) homePageDisplay.style.display = 'none';
     if (homePageImage) homePageImage.style.display = 'none'
 
-    if (monumentDisplay) monumentDisplay.style.display = 'block';
+    if (listDisplay) listDisplay.style.display = 'block';
 
 
-    const data = monumentData[monumentId];
+    const data = listData[listID];
     if (data) {
-      if (monumentTitle) monumentTitle.textContent = data.title;
-      if (monumentImage) {
-        monumentImage.src = data.image;
-        monumentImage.alt = data.title;
-        monumentImage.style.display = 'block';
-        monumentImage.classList.add(appLayoutStyles.image);
+      if (listTitle) listTitle.textContent = data.title;
+      if (listImage) {
+        listImage.src = data.image;
+        listImage.alt = data.title;
+        listImage.style.display = 'block';
+        listImage.classList.add(appLayoutStyles.image);
       }
-      if (monumentDescription) monumentDescription.textContent = data.description;
-      if (monumentLocation) monumentLocation.textContent = "Местоположение: " + data.location;
+      if (listDescription) listDescription.textContent = data.description;
+      if (listLocation) listLocation.textContent = data.location;
 
-      const monumentLink = document.querySelector(`[data-monument-id="${monumentId}"]`);
-      if (monumentLink) {
-        monumentLink.classList.add(navigationStyles.active);
+      const listLink = document.querySelector(`[data-list-id="${listID}"]`);
+      if (listLink) {
+        listLink.classList.add(navigationStyles.active);
       }
     } else {
-      if (monumentTitle) monumentTitle.textContent = "Информация о памятнике не найдена";
-      if (monumentImage) monumentImage.style.display = 'none';
-      if (monumentDescription) monumentDescription.textContent = "";
-      if (monumentLocation) monumentLocation.textContent = "";
+      if (listTitle) listTitle.textContent = "Информация о памятнике не найдена";
+      if (listImage) listImage.style.display = 'none';
+      if (listDescription) listDescription.textContent = "";
+      if (listLocation) listLocation.textContent = "";
     }
   };
 
@@ -110,12 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
 
       const pageId = link.dataset.pageId;
-      const monumentId = link.dataset.monumentId;
+      const listID = link.dataset.listId;
 
       if (pageId === 'home-page') {
         renderHomePage();
-      } else if (monumentId) {
-        renderMonumentPage(monumentId);
+      } else if (listID) {
+        renderMonumentPage(listID);
       }
     });
   });

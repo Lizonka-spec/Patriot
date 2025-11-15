@@ -18,6 +18,10 @@
   padding: $spacing-l;
 }
 
+:global(.game-wrapper.hidden){
+  display: none;
+}
+
 :global(.game-wrapper) {
   display: flex;
   flex-direction: column;

@@ -1,8 +1,11 @@
-.start-box{
+.start-box {
     margin: 0;
     width: 100vw;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #64ff35, #ff9e0e);
+    background-image: url("../public/background01.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.85;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,43 +15,47 @@
 .start-screen {
     justify-content: center;
     height: 25%;
-    width: 35%;
+    width: 45%;
     flex-direction: column;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.1294117647);
+    background-color: rgba(87, 87, 87, 0.705);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
 }
 
 .start-title {
     font-size: 3.5rem;
-    color: #ffffff; 
-    animation: heartbeat 1.5s infinite; 
+    color: #ffffff;
+    animation: heartbeat 1.5s infinite;
 }
 
 .start-button {
-    animation: heartbeat 1.5s infinite; 
+    animation: heartbeat 1.5s infinite;
     margin-top: 10px;
     display: inline-block;
     padding: 10px 20px;
     font-size: 1.5rem;
-    color: #fff; 
-    background-color: #ff5100; 
+    color: #fff;
+    background-color: #ff1100;
     border: none;
     border-radius: 5px;
     text-decoration: none;
-    
+
 }
 
 .start-button:hover {
     transform: scale(1.1);
 }
+
 @keyframes heartbeat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.1);
     }

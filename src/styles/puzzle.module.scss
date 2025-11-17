@@ -1,7 +1,8 @@
+@use "sass:math";
 @import "variables";
 
 :global(.puzzle-container) {
-  width: 49%;
+  width: 45%;
   background-color: $card-background;
   padding: $spacing-l;
   border-radius: $border-radius-card;
@@ -20,7 +21,7 @@
 }
 
 :global(.puzzle-image) {
-  width: calc(17.666% - #{$spacing-xs * 5 / 6}); // Для 5 колонок монументов
+  width: calc(17.666% - #{math.div($spacing-xs * 5, 6)});
   height: auto;
   border-radius: $border-radius-base;
   object-fit: cover;
@@ -28,7 +29,7 @@
 }
 
 :global(.street-puzzle-image) {
-  width: calc(30% - #{$spacing-xs / 2}); // Для 2 колонок улиц (2x2 сетка)
+  width: calc(34% - #{math.div($spacing-xs, 2)});
   height: auto;
   border-radius: $border-radius-base;
   object-fit: cover;
@@ -37,16 +38,16 @@
 
 @media (max-width: 768px) {
   :global(.puzzle-image) {
-    width: calc(23.666% - #{$spacing-xs * 5 / 6});
+    width: calc(23.666% - #{math.div($spacing-xs * 5, 6)});
   }
 }
 
 @media (max-width: 425px) {
   :global(.puzzle-image) {
-    width: calc(30.666% - #{$spacing-xs * 5 / 6});
+    width: calc(30.666% - #{math.div($spacing-xs * 5, 6)});
   }
   :global(.street-puzzle-image) {
-    width: calc(50% - #{$spacing-xs / 2});
+    width: calc(50% - #{math.div($spacing-xs, 2)});
   }
 }
 

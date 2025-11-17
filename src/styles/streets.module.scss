@@ -51,7 +51,7 @@ $spacing-s: 10px;
   border: 1px solid $color-border;
   border-radius: $border-radius-base;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: lighten($color-card-background, 2%);
+  background-color: #eeeeee;
   text-align: left;
 
   &:hover {
@@ -87,7 +87,7 @@ $spacing-s: 10px;
     box-shadow 0.3s ease;
 
   &:hover {
-    background-color: darken($color-primary, 10%);
+    background-color: #e75e02;
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba($color-primary, 0.4);
   }

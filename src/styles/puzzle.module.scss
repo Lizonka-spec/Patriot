@@ -18,8 +18,9 @@
 :global(.hidden) {
   display: none !important;
 }
+
 :global(.puzzle-image) {
-  width: calc(33.666% - #{$spacing-xs * 5 / 6});
+  width: calc(17.666% - #{$spacing-xs * 5 / 6}); // Для 5 колонок монументов
   height: auto;
   border-radius: $border-radius-base;
   object-fit: cover;
@@ -27,39 +28,30 @@
 }
 
 :global(.street-puzzle-image) {
-  width: calc(33.666% - #{$spacing-xs * 5 / 6});
+  width: calc(30% - #{$spacing-xs / 2}); // Для 2 колонок улиц (2x2 сетка)
   height: auto;
   border-radius: $border-radius-base;
   object-fit: cover;
   transition: opacity 0.5s ease;
 }
 
-:global(.puzzle-image.hidden) {
-  opacity: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-:global(.puzzle-image:not(.hidden)) {
-  opacity: 1;
-  height: auto;
-}
-
-:global(.street-puzzle-image) {
-  width: calc(33.666% - #{$spacing-xs * 5 / 6});
-  height: auto;
-  border-radius: $border-radius-base;
-  object-fit: cover;
-  transition: opacity 0.5s ease;
-
-  @media (max-width: 425px) {
-    width: calc(70% - #{$spacing-xs});
+@media (max-width: 768px) {
+  :global(.puzzle-image) {
+    width: calc(23.666% - #{$spacing-xs * 5 / 6});
   }
 }
 
-:global(.puzzle-image.hidden) {
+@media (max-width: 425px) {
+  :global(.puzzle-image) {
+    width: calc(30.666% - #{$spacing-xs * 5 / 6});
+  }
+  :global(.street-puzzle-image) {
+    width: calc(50% - #{$spacing-xs / 2});
+  }
+}
+
+:global(.puzzle-image.hidden),
+:global(.street-puzzle-image.hidden) {
   opacity: 0;
   height: 0;
   margin: 0;
@@ -67,7 +59,8 @@
   border: none;
 }
 
-:global(.puzzle-image:not(.hidden)) {
+:global(.puzzle-image:not(.hidden)),
+:global(.street-puzzle-image:not(.hidden)) {
   opacity: 1;
   height: auto;
 }

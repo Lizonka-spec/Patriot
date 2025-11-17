@@ -10,108 +10,160 @@ $spacing-m: 20px;
 $spacing-s: 10px;
 
 :global(#game-select-screen) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100vw;
-    background-color: $color-background;
-    padding: $spacing-l;
-    font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: $color-background;
+  padding: $spacing-l;
+  font-family: Arial, sans-serif;
 }
 
 :global(.select-content) {
-    width: 100%;
-    max-width: 900px;
-    padding: $spacing-l * 1.5;
-    background: $color-card-background;
-    border-radius: $border-radius-base * 2;
-    box-shadow: 0 10px 30px $color-shadow;
-    text-align: center;
+  width: 100%;
+  max-width: 900px;
+  padding: $spacing-l * 1.5;
+  background: $color-card-background;
+  border-radius: $border-radius-base * 2;
+  box-shadow: 0 10px 30px $color-shadow;
+  text-align: center;
 }
 
 :global(.select-content h1) {
-    color: $color-text;
-    margin-bottom: $spacing-l;
-    font-size: 2.5em;
-    font-weight: 600;
+  color: $color-text;
+  margin-bottom: $spacing-l;
+  font-size: 2.5em;
+  font-weight: 600;
 }
 
 :global(.menu-options) {
-    display: flex;
-    gap: $spacing-l;
-    justify-content: center;
-    margin-bottom: $spacing-l;
+  display: flex;
+  gap: $spacing-l;
+  justify-content: center;
+  margin-bottom: $spacing-l;
 }
 
 :global(.menu-item) {
-    flex: 1;
-    min-width: 300px;
-    padding: $spacing-l;
-    border: 1px solid $color-border;
-    border-radius: $border-radius-base;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: lighten($color-card-background, 2%);
-    text-align: left;
+  flex: 1;
+  min-width: 300px;
+  padding: $spacing-l;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-base;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: lighten($color-card-background, 2%);
+  text-align: left;
 
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15)
-    }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
 }
 
 :global(.menu-item h2) {
-    color: $color-primary;
-    font-size: 1.5em;
-    margin-top: 0;
-    margin-bottom: $spacing-s;
+  color: $color-primary;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: $spacing-s;
 }
 
 :global(.menu-item p) {
-    color: $color-text;
-    margin-bottom: $spacing-m;
-    line-height: 1.4;
+  color: $color-text;
+  margin-bottom: $spacing-m;
+  line-height: 1.4;
 }
 
 :global(.start-quiz-button) {
-    padding: $spacing-s $spacing-m;
-    font-size: 1.1em;
-    font-weight: 600;
-    cursor: pointer;
-    border: none;
-    border-radius: $border-radius-base;
-    background-color: $color-primary;
-    color: white;
+  padding: $spacing-s $spacing-m;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: $border-radius-base;
+  background-color: $color-primary;
+  color: white;
 
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
 
-    &:hover {
-        background-color: darken($color-primary, 10%);
-        transform: scale(1.05);
-        box-shadow: 0 5px 15px rgba($color-primary, 0.4);
-    }
+  &:hover {
+    background-color: darken($color-primary, 10%);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba($color-primary, 0.4);
+  }
 
-    &:active {
-        transform: scale(1.02);
-    }
+  &:active {
+    transform: scale(1.02);
+  }
 }
 
 :global(.back-link) {
-    background-color: #60638f;
-    text-decoration: none;
-    color: white;
-    border: none;
-    padding: 11px 15px;
-    border-radius: 8px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
+  background-color: #60638f;
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 11px 15px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
 
-    &:hover {
-        transform: translateY(-2px);
-    }
+  &:hover {
+    transform: translateY(-2px);
+  }
 }
 
 :global(.screen .hidden) {
-    display: none;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  :global(#game-select-screen) {
+    padding: $spacing-m;
+  }
+
+  :global(.select-content) {
+    padding: $spacing-m * 1.5;
+  }
+
+  :global(.select-content h1) {
+    font-size: 2em;
+  }
+
+  :global(.menu-options) {
+    flex-direction: column;
+    gap: $spacing-m;
+  }
+
+  :global(.menu-item) {
+    min-width: auto;
+  }
+
+  :global(.start-quiz-button, .back-link) {
+    width: 100%;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 425px) {
+  :global(#game-select-screen) {
+    padding: $spacing-s;
+  }
+
+  :global(.select-content h1) {
+    font-size: 1.5em;
+  }
+
+  :global(.menu-item h2) {
+    font-size: 1.2em;
+  }
+
+  :global(.menu-item p) {
+    font-size: 0.9em;
+  }
+
+  :global(.start-quiz-button, .back-link) {
+    padding: $spacing-s * 0.75 $spacing-s;
+    font-size: 0.9em;
+  }
 }

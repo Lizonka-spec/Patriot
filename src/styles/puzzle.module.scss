@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 :global(.puzzle-container) {
   width: 49%;
@@ -19,7 +19,7 @@
   display: none !important;
 }
 :global(.puzzle-image) {
-  width: calc(17.666% - #{$spacing-xs * 5 / 6}); 
+  width: calc(33.666% - #{$spacing-xs * 5 / 6});
   height: auto;
   border-radius: $border-radius-base;
   object-fit: cover;
@@ -34,6 +34,30 @@
   transition: opacity 0.5s ease;
 }
 
+:global(.puzzle-image.hidden) {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+:global(.puzzle-image:not(.hidden)) {
+  opacity: 1;
+  height: auto;
+}
+
+:global(.street-puzzle-image) {
+  width: calc(33.666% - #{$spacing-xs * 5 / 6});
+  height: auto;
+  border-radius: $border-radius-base;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+
+  @media (max-width: 425px) {
+    width: calc(70% - #{$spacing-xs});
+  }
+}
 
 :global(.puzzle-image.hidden) {
   opacity: 0;

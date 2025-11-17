@@ -1,45 +1,154 @@
+// .container {
+//   display: flex;
+//   gap: 20px;
+//   max-width: 1200px;
+//   margin: 20px auto;
+//   padding: 0 20px;
+//   align-items: flex-start;
+// }
+
+// .mainContentArea {
+//   flex-grow: 1;
+//   display: flex;
+//   flex-direction: column;
+//   min-width: 0;
+// }
+
+// .contentDisplay {
+//   padding: 20px;
+//   border: 1px solid #eee;
+//   background-color: #f9f9f9;
+//   border-radius: 8px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+// }
+
+// .contentDisplay h1 {
+//   color: #ff5e00;
+//   margin-bottom: 15px;
+//   text-align: center;
+// }
+
+// .contentDisplay p {
+//   color: #555;
+//   font-size: 20px;
+//   line-height: 1.5;
+// }
+
+// .image {
+//   margin-top: 15px;
+//   border-radius: 5px;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//   width: 800px;
+//   height: 550px;
+//   object-fit: cover;
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+// .gameLink {
+//   display: block;
+//   width: fit-content;
+//   margin: 20px auto;
+//   padding: 10px 20px;
+//   background-color: #ca0000;
+//   color: white;
+//   text-decoration: none;
+//   border-radius: 5px;
+//   font-size: 1.1em;
+//   transition: background-color 0.2s ease;
+// }
+
+// .gameLink:hover {
+//   background-color: #218838;
+// }
+
+// @media (max-width: 768px) {
+//   .container {
+//     gap: 10px;
+//     padding: 10px;
+//   }
+
+//   .home-page-image,
+//   .list-image {
+//     width: 100%;
+//     height: auto;
+//     margin-top: 10px;
+//   }
+
+//   .game-link {
+//     font-size: 1em;
+//     padding: 8px 16px;
+//     margin-top: 10px;
+//     margin-bottom: 10px;
+//   }
+// }
+
+// @media (min-width: 769px) and (max-width: 1024px) {
+//   .container {
+//     padding: 15px;
+//     gap: 15px;
+//   }
+
+//   .home-page-image,
+//   .list-image {
+//     width: auto;
+//     max-width: 100%;
+//     height: auto;
+//     margin-top: 15px;
+//   }
+
+//   .game-link {
+//     font-size: 1.1em;
+//     padding: 10px;
+//     margin-top: 15px;
+//     margin-bottom: 15px;
+//   }
+// }
+
 .container {
   display: flex;
-  gap: 20px;
+  gap: 1.25rem; /* 20px -> rem для пропорциональности */
   max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 20px;
+  margin: 1.25rem auto; /* 20px -> rem */
+  padding: 0 1.25rem; /* 20px -> rem */
   align-items: flex-start;
 }
 
 .mainContentArea {
-  flex-grow: 1; 
-  display: flex; 
+  flex-grow: 1;
+  display: flex;
   flex-direction: column;
   min-width: 0;
 }
 
 .contentDisplay {
-  padding: 20px;
+  padding: 1.25rem; /* 20px -> rem */
   border: 1px solid #eee;
   background-color: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contentDisplay h1 {
   color: #ff5e00;
-  margin-bottom: 15px;
+  margin-bottom: 0.9375rem; /* 15px -> rem */
   text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2rem); /* Fluid размер для пропорций */
 }
 
 .contentDisplay p {
   color: #555;
-  font-size: 20px;
+  font-size: clamp(1rem, 2.5vw, 1.25rem); /* Fluid, сохраняет читаемость */
   line-height: 1.5;
 }
 
 .image {
-  margin-top: 15px;
+  margin-top: 0.9375rem; /* 15px -> rem */
   border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 800px;
-  height: 550px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%; /* Всегда responsive, сохраняет пропорции */
+  height: auto; /* Автоматическая высота для aspect ratio */
   object-fit: cover;
   display: block;
   margin-left: auto;
@@ -49,16 +158,72 @@
 .gameLink {
   display: block;
   width: fit-content;
-  margin: 20px auto; 
-  padding: 10px 20px;
+  margin: 1.25rem auto; /* 20px -> rem */
+  padding: 0.625rem 1.25rem; /* 10px 20px -> rem */
   background-color: #ca0000;
   color: white;
   text-decoration: none;
   border-radius: 5px;
-  font-size: 1.1em;
+  font-size: clamp(1rem, 2.5vw, 1.1rem); /* Fluid */
   transition: background-color 0.2s ease;
 }
 
 .gameLink:hover {
   background-color: #218838;
+}
+
+/* Мобильные устройства (до 768px) */
+@media (max-width: 768px) {
+  .container {
+    gap: 0.625rem; /* 10px -> rem, меньше для маленьких экранов */
+    padding: 0 0.625rem; /* 10px -> rem */
+    margin: 0.625rem auto; /* 10px -> rem */
+  }
+
+  .contentDisplay {
+    padding: 1rem; /* Меньше padding для экономии места */
+  }
+
+  .image {
+    /* Уже responsive, пропорции сохранены */
+    margin-top: 0.625rem; /* 10px -> rem */
+  }
+
+  .gameLink {
+    font-size: clamp(0.9rem, 2vw, 1rem); /* Меньше на мобильных */
+    padding: 0.5rem 1rem; /* 8px 16px -> rem */
+    margin-top: 0.625rem; /* 10px -> rem */
+    margin-bottom: 0.625rem; /* 10px -> rem */
+  }
+}
+
+@media (max-width: 425px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+/* Средние экраны (769px - 1024px, планшеты) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0.9375rem; /* 15px -> rem */
+    gap: 0.9375rem; /* 15px -> rem */
+  }
+
+  .contentDisplay {
+    padding: 1.25rem; /* 20px -> rem, немного меньше */
+  }
+
+  .image {
+    /* Responsive, пропорции сохранены, но можно ограничить max-width */
+    max-width: 90%; /* Чтобы не занимало весь экран */
+    margin-top: 0.9375rem; /* 15px -> rem */
+  }
+
+  .gameLink {
+    font-size: clamp(1rem, 2.5vw, 1.1rem); /* Как базовый */
+    padding: 0.625rem; /* 10px -> rem */
+    margin-top: 0.9375rem; /* 15px -> rem */
+    margin-bottom: 0.9375rem; /* 15px -> rem */
+  }
 }

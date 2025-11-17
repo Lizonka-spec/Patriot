@@ -1,55 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/styles/startScreen.module.scss" />
+    <title>2025 год благоустройства</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./src/styles/startScreen.module.scss">
-  <title>2025 год благоустройства</title>
-</head>
+  <body>
+    <div class="container">
+      <button type="button" class="hamburger">&#9776;</button>
+      <section class="navigationSection">
+        <ul class="navigationList">
+          <li><a data-page-id="home-page" href="#">Главная</a></li>
+          <p>Обелиски:</p>
+          <li>
+            <a data-list-id="victory-monument" href="#">Монумент Победы</a>
+          </li>
+          <li><a data-list-id="stele" href="#">Стела</a></li>
+          <li><a data-list-id="khatyn" href="#">Комплекс "Хатынь"</a></li>
+          <li>
+            <a data-list-id="mound-of-glory" href="#"
+              >Комплекс "Курган славы"</a
+            >
+          </li>
+          <li>
+            <a data-list-id="victims-of-thewar" href="#"
+              >Комплекс "Детям – жертвам войны"</a
+            >
+          </li>
+          <li><a data-list-id="bagration" href="#">Комплекс "Багратион"</a></li>
+          <li>
+            <a data-list-id="brestskaya-krepost" href="#">Брестская крепость</a>
+          </li>
+          <li>
+            <a data-list-id="krinichka" href="#">Партизанская криничка</a>
+          </li>
+          <li><a data-list-id="yama" href="#">Комплекс "Яма"</a></li>
+          <li>
+            <a data-list-id="trostenec" href="#">Комплекс "Тростенец"</a>
+          </li>
+          <p>"Их именами названы улицы":</p>
+          <li><a data-list-id="Vaupshasova" href="#">Ваупшасов</a></li>
+          <li><a data-list-id="Gastello" href="#">Гастелло</a></li>
+          <li><a data-list-id="rafiev" href="#">Рафиев</a></li>
+          <li><a data-list-id="Lebedev" href="#">Лебедев</a></li>
+        </ul>
+      </section>
+      <div class="main-content">
+        <div class="main-content-area">
+          <div class="home-page-display">
+            <h1 class="home-page-title"></h1>
+            <p class="home-page-description"></p>
+            <img src="" alt="#" class="home-page-image" />
+          </div>
 
-<body>
-  <div class="container">
-    <section>
-      <ul>
-        <li><a data-page-id="home-page" href="#">Главная</a></li>
-        <p>Обелиски:</p>
-        <li><a data-list-id="victory-monument" href="#">Монумент Победы</a></li>
-        <li><a data-list-id="stele" href="#">Стела</a></li>
-        <li><a data-list-id="khatyn" href="#">Комплекс "Хатынь"</a></li>
-        <li><a data-list-id="mound-of-glory" href="#">Комплекс "Курган славы"</a></li>
-        <li><a data-list-id="victims-of-thewar" href="#">Комплекс "Детям – жертвам войны"</a></li>
-        <li><a data-list-id="bagration" href="#">Багратион</a></li>
-        <li><a data-list-id="brestskaya-krepost" href="#">Брестская крепость</a></li>
-        <li><a data-list-id="krinichka" href="#">Партизанская криничка</a></li>
-        <li><a data-list-id="yama" href="#">Комплекс "Яма"</a></li>
-        <li><a data-list-id="trostenec" href="#">Комплекс "Тростенец"</a></li>
-        <p>"Их именами названы улицы":</p>
-        <li><a data-list-id="Vaupshasova" href="#">Ваупшасов</a></li>
-        <li><a data-list-id="Gastello" href="#">Гастелло</a></li>
-        <li><a data-list-id="rafiev" href="#">Рафиев</a></li>
-        <li><a data-list-id="Lebedev" href="#">Лебедев</a></li>
-      </ul>
-    </section>
-
-    <div class="main-content-area">
-      <div class="home-page-display">
-        <h1 class="home-page-title"></h1>
-        <p class="home-page-description"></p>
-        <img src="" alt="#" class="home-page-image">
-      </div>
-
-      <div class="list-display">
-        <h1 class="list-title"></h1>
-        <img class="list-image" src="" alt="#">
-        <p class="list-description"></p>
-        <p class="list-location"></p>
+          <div class="list-display">
+            <h1 class="list-title"></h1>
+            <img class="list-image" src="" alt="#" />
+            <p class="list-description"></p>
+            <p class="list-location"></p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <a href="./game.html" class="game-link">Пройти тест-игру</a>
-  <script type="module" src="/src/main.js"></script>
-</body>
-
+    <a href="./game.html" class="game-link">Пройти тест-игру</a>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>

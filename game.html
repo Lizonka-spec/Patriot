@@ -1,94 +1,171 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/styles/game.scss" />
+    <title>Тест-игра "Памятники Беларуси"</title>
+  </head>
+  <body>
+    <div id="game-select-screen" class="screen">
+      <div class="select-content">
+        <h1>Выберите раздел для игры</h1>
+        <div class="menu-options">
+          <div class="menu-item">
+            <h2>Раздел 1: Обелиски и Памятники</h2>
+            <p>Соберите картину, посвященную мемориалам Минска.</p>
+            <button class="start-quiz-button" data-quiz-type="monuments">
+              Начать игру
+            </button>
+          </div>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./src/styles/game.scss">
-  <title>Тест-игра "Памятники Беларуси"</title>
-</head>
-<body>
-  <div id="game-select-screen" class="screen">
-        <div class="select-content">
-            <h1>Выберите раздел для игры</h1>
-            <div class="menu-options">
-                <div class="menu-item">
-                    <h2>Раздел 1: Обелиски и Памятники</h2>
-                    <p>Соберите картину, посвященную мемориалам Минска.</p>
-                    <button class="start-quiz-button" data-quiz-type="monuments">Начать игру</button>
-                </div>
-
-                <div class="menu-item">
-                    <h2>Раздел 2: Их именами названы улицы</h2>
-                    <p>Узнайте о выдающихся личностях, чьи имена носят улицы Минска.</p>
-                    <button class="start-quiz-button" data-quiz-type="streets">Начать игру</button>
-                </div>
-            </div>
-            <a href="./main-menu.html" class="back-link">Вернуться на главную</a>
+          <div class="menu-item">
+            <h2>Раздел 2: Их именами названы улицы</h2>
+            <p>Узнайте о выдающихся личностях, чьи имена носят улицы Минска.</p>
+            <button class="start-quiz-button" data-quiz-type="streets">
+              Начать игру
+            </button>
+          </div>
         </div>
+        <a href="./main-menu.html" class="back-link">Вернуться на главную</a>
+      </div>
     </div>
-  <div class="game-wrapper hidden" id="gameWrapper">
-    <div class="puzzle-container">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="0">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="1">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="2">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="3">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="4">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="5">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="6">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="7">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="8">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="9">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="10">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="11">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="12">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="13">
-      <img src="" alt="Часть пазла" class="puzzle-image hidden" data-puzzle-index="14">
+    <div class="game-wrapper hidden" id="gameWrapper">
+      <div class="puzzle-container">
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="0"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="1"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="2"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="3"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="4"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="5"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="6"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="7"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="8"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="9"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="10"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="11"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="12"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="13"
+        />
+        <img
+          src=""
+          alt="Часть пазла"
+          class="puzzle-image hidden"
+          data-puzzle-index="14"
+        />
+      </div>
+
+      <div class="quiz-container">
+        <h2 class="question-text"></h2>
+        <p class="question-counter"></p>
+
+        <div class="answer-input-display"></div>
+
+        <div class="attempts-display">
+          Попыток осталось: <span class="attempts-count">3</span>
+        </div>
+
+        <div class="alphabet-container"></div>
+
+        <p class="feedback-message"></p>
+
+        <div class="quiz-controls">
+          <button class="check-answer-btn">Проверить ответ</button>
+          <button class="next-btn" disabled>Следующий вопрос</button>
+          <a href="./main-menu.html" class="back-to-main"
+            >Вернуться на главную</a
+          >
+        </div>
+      </div>
     </div>
 
-    <div class="quiz-container">
-      <h2 class="question-text"></h2>
-      <p class="question-counter"></p>
-
-      <div class="answer-input-display">
+    <div class="modal" id="emptyAnswerModal">
+      <div class="modal-content">
+        <h3>Внимание!</h3>
+        <p>Пожалуйста, введите ответ, используя кнопки алфавита.</p>
+        <button class="modal-close-btn">ОК</button>
       </div>
+    </div>
 
-      <div class="attempts-display">
-        Попыток осталось: <span class="attempts-count">3</span>
-      </div>
-
-      <div class="alphabet-container">
-      </div>
-
-      <p class="feedback-message"></p>
-
-      <div class="quiz-controls">
-        <button class="check-answer-btn">Проверить ответ</button>
-        <button class="next-btn" disabled>Следующий вопрос</button>
+    <div class="modal" id="victoryModal">
+      <div class="modal-content">
+        <h3>Поздравляем!</h3>
+        <p>Вы успешно собрали всю картину и ответили на все вопросы!</p>
+        <img src="" alt="Полная картина" class="final-puzzle-image" />
+        <button class="restart-btn">Начать заново</button>
         <a href="./main-menu.html" class="back-to-main">Вернуться на главную</a>
       </div>
     </div>
-  </div>
 
-  <div class="modal" id="emptyAnswerModal">
-    <div class="modal-content">
-      <h3>Внимание!</h3>
-      <p>Пожалуйста, введите ответ, используя кнопки алфавита.</p>
-      <button class="modal-close-btn">ОК</button>
-    </div>
-  </div>
-
-   <div class="modal" id="victoryModal">
-    <div class="modal-content">
-      <h3>Поздравляем!</h3>
-      <p>Вы успешно собрали всю картину и ответили на все вопросы!</p>
-      <img src="" alt="Полная картина" class="final-puzzle-image">
-      <button class="restart-btn">Начать заново</button>
-      <a href="./main-menu.html" class="back-to-main">Вернуться на главную</a>
-    </div>
-  </div>
-
-  <script type="module" src="/src/scripts/game.js"></script>
-</body>
-
+    <script type="module" src="/src/scripts/game.js"></script>
+  </body>
 </html>

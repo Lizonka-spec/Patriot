@@ -25,7 +25,7 @@ export const monumentQuizQuestions = [
     type: "monument",
   },
   {
-    question: `Как по-другому называется комплекс "Тростенец"?`,
+    question: "Как по-другому называется комплекс 'Тростенец'?",
     answer: "ВРАТА ПАМЯТИ",
     imagePath: "/src/assets/puzzle/puzzle_5.jpg",
     type: "monument",

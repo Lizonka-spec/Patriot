@@ -1,7 +1,12 @@
 import * as DOM from "./domElements.js";
-import * as GameState from "./gameState.js";
+import * as gameState from "./gameState.js";
 import * as Modals from "./modals.js";
-import { finalMonumentImagePath, finalStreetImagePath } from "./questions.js";
+import {
+  streetQuizQuestions,
+  finalMonumentImagePath,
+  finalStreetImagePath,
+  monumentQuizQuestions,
+} from "./questions.js";
 import "../styles/quiz.module.scss";
 import "../styles/puzzle.module.scss";
 import "../styles/buttons.module.scss";
@@ -53,7 +58,7 @@ export function updateNextButtonState(disabled) {
 }
 
 export function updatePuzzle(allQuestions, masteredQuestionsSet) {
-  const totalParts = GameState.getTotalPuzzleParts();
+  const totalParts = gameState.getTotalPuzzleParts();
 
   DOM.puzzleImages.forEach((img, index) => {
     if (index >= totalParts) {
@@ -80,10 +85,20 @@ export function updatePuzzle(allQuestions, masteredQuestionsSet) {
     }
   });
 }
+let victoryImagePath;
+export function showVictoryScreen(victoryImagePath) {
+  monumentQuizQuestions.forEach((question) => {
+    if (question.type === "monument") {
+      victoryImagePath = finalMonumentImagePath;
+    }
+  });
+  streetQuizQuestions.forEach((question) => {
+    if (question.type === "street") {
+      victoryImagePath = finalStreetImagePath;
+    }
+  });
 
-export function showVictoryScreen() {
-  const finalPath = GameState.getFinalImagePath();
-  Modals.showVictoryModal(finalPath);
+  Modals.showVictoryModal(victoryImagePath);
 }
 
 export function showQuizScreen() {

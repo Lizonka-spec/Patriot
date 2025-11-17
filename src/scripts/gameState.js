@@ -84,8 +84,8 @@ export function getTotalPuzzleParts() {
 }
 
 export function getFinalImagePath() {
-  return _currentQuizType === "street"
-    ? finalStreetImagePath
+  return _currentQuizType === "streets"
+    ? finalMonumentImagePath
     : finalMonumentImagePath;
 }
 

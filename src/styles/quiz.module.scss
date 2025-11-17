@@ -1,13 +1,11 @@
-@use "variables";
-
 :global(.quiz-container) {
   width: 72%;
-  background-color: $card-background;
-  padding: $spacing-l;
-  border-radius: $border-radius-card;
-  box-shadow: $box-shadow-base;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: $spacing-l;
+  margin-top: 20px;
   flex-grow: 1;
   min-height: 0;
   overflow-y: auto;
@@ -16,42 +14,42 @@
   :global(.quiz-container) {
     width: 72%;
     max-width: 900px;
-    background-color: $card-background;
-    padding: $spacing-l;
-    border-radius: $border-radius-card;
-    box-shadow: $box-shadow-base;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: $spacing-l;
+    margin-top: 20px;
     flex-grow: 1;
     min-height: 0;
     overflow-y: auto;
   }
 
   :global(h2) {
-    color: $text-color-dark;
-    margin-bottom: $spacing-m;
-    font-size: $font-size-h2;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.8em;
   }
 
   :global(.question-text) {
-    font-size: $font-size-question;
-    margin-bottom: $spacing-s;
-    color: $text-color-medium;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #555;
     min-height: 50px;
   }
 
   :global(.question-counter) {
     font-size: 0.9em;
-    color: $text-color-light;
-    margin-bottom: $spacing-xl;
+    color: #7f8c8d;
+    margin-bottom: 25px;
   }
 
   :global(.answer-input-display) {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: $spacing-s;
-    margin-bottom: $spacing-s;
+    gap: 10px;
+    margin-bottom: 10px;
     min-height: 40px;
   }
 
@@ -61,68 +59,68 @@
     align-items: center;
     max-width: 30px;
     max-height: 55px;
-    border-bottom: 2px solid $primary-color;
+    border-bottom: 2px solid #3498db;
     font-size: 2em;
-    font-weight: $font-weight-bold;
-    color: $text-color-dark;
+    font-weight: bold;
+    color: #2c3e50;
     text-transform: uppercase;
   }
 
   :global(.attempts-display) {
-    font-size: $font-size-feedback;
-    color: $error-color;
-    margin-bottom: $spacing-l;
-    font-weight: $font-weight-bold;
+    font-size: 1.1em;
+    color: #e74c3c;
+    margin-bottom: 20px;
+    font-weight: bold;
   }
 
   :global(.feedback-message) {
-    font-size: $font-size-feedback;
-    margin-top: $spacing-m;
+    font-size: 1.1em;
+    margin-top: 15px;
     min-height: 25px;
-    font-weight: $font-weight-bold;
+    font-weight: bold;
   }
 
   :global(.feedback-message.correct) {
-    color: $success-color;
+    color: #27ae60;
   }
 
   :global(.feedback-message.incorrect) {
-    color: $error-color;
+    color: #e74c3c;
   }
 
   :global(.quiz-controls) {
     display: flex;
     justify-content: center;
-    gap: $spacing-m;
-    margin-top: $spacing-m;
+    gap: 15px;
+    margin-top: 15px;
   }
 }
 
 :global(h2) {
-  color: $text-color-dark;
-  margin-bottom: $spacing-m;
-  font-size: $font-size-h2;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.8em;
 }
 
 :global(.question-text) {
-  font-size: $font-size-question;
-  margin-bottom: $spacing-l;
-  color: $text-color-medium;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+  color: #555;
   min-height: 50px;
 }
 
 :global(.question-counter) {
   font-size: 0.9em;
-  color: $text-color-light;
-  margin-bottom: $spacing-xl;
+  color: #7f8c8d;
+  margin-bottom: 25px;
 }
 
 :global(.answer-input-display) {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: $spacing-m;
-  margin-bottom: $spacing-xxl;
+  gap: 15px;
+  margin-bottom: 30px;
   min-height: 40px;
 }
 
@@ -132,102 +130,102 @@
   align-items: center;
   width: 40px;
   height: 45px;
-  border-bottom: 2px solid $primary-color;
-  font-size: $font-size-answer-char;
-  font-weight: $font-weight-bold;
-  color: $text-color-dark;
+  border-bottom: 2px solid #3498db;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #2c3e50;
   text-transform: uppercase;
 }
 
 :global(.attempts-display) {
-  font-size: $font-size-feedback;
-  color: $error-color;
-  margin-bottom: $spacing-l;
-  font-weight: $font-weight-bold;
+  font-size: 1.1em;
+  color: #e74c3c;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 :global(.feedback-message) {
-  font-size: $font-size-feedback;
-  margin-top: $spacing-m;
+  font-size: 1.1em;
+  margin-top: 15px;
   min-height: 25px;
-  font-weight: $font-weight-bold;
+  font-weight: bold;
 }
 
 :global(.feedback-message.correct) {
-  color: $success-color;
+  color: #27ae60;
 }
 
 :global(.feedback-message.incorrect) {
-  color: $error-color;
+  color: #e74c3c;
 }
 
 :global(.quiz-controls) {
   display: flex;
   justify-content: center;
-  gap: $spacing-m;
-  margin-top: $spacing-xxl;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 @media (max-width: 768px) {
   :global(.quiz-container) {
     width: 90%;
-    padding: $spacing-m;
-    margin-top: $spacing-m;
+    padding: 15px;
+    margin-top: 15px;
   }
 
   :global(h2) {
-    font-size: $font-size-h2 * 0.9;
-    margin-bottom: $spacing-s;
+    font-size: 1.8em * 0.9;
+    margin-bottom: 10px;
   }
 
   :global(.question-text) {
-    font-size: $font-size-question * 0.9;
-    margin-bottom: $spacing-m;
+    font-size: 1.3em * 0.9;
+    margin-bottom: 15px;
   }
 
   :global(.answer-input-display span) {
     width: 25px;
     height: 50px;
-    font-size: $font-size-answer-char * 0.9;
+    font-size: 2.5em * 0.9;
   }
 
   :global(.quiz-controls) {
-    gap: $spacing-s;
-    margin-top: $spacing-l;
+    gap: 10px;
+    margin-top: 20px;
   }
 }
 
 @media (max-width: 425px) {
   :global(.quiz-container) {
     width: 95%;
-    padding: $spacing-s;
-    margin-top: $spacing-s;
+    padding: 10px;
+    margin-top: 10px;
   }
 
   :global(h2) {
-    font-size: $font-size-h2 * 0.8;
-    margin-bottom: $spacing-xs;
+    font-size: 1.8em * 0.8;
+    margin-bottom: 8px;
   }
 
   :global(.question-text) {
-    font-size: $font-size-question * 0.8;
-    margin-bottom: $spacing-l;
+    font-size: 1.3em * 0.8;
+    margin-bottom: 20px;
     min-height: auto;
   }
 
   :global(.answer-input-display span) {
     width: 20px;
     height: 45px;
-    font-size: $font-size-answer-char * 0.8;
+    font-size: 2.5em * 0.8;
   }
 
   :global(.attempts-display),
   :global(.feedback-message) {
-    font-size: $font-size-feedback * 0.9;
-    margin-bottom: $spacing-s;
+    font-size: 1.1em * 0.9;
+    margin-bottom: 10px;
   }
   :global(.quiz-controls) {
-    gap: $spacing-xs;
-    margin-top: $spacing-m;
+    gap: 8px;
+    margin-top: 15px;
   }
 }

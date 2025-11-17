@@ -4,10 +4,6 @@ $color-background: #f8f9fa;
 $color-card-background: #ffffff;
 $color-border: #e0e0e0;
 $color-shadow: rgba(0, 0, 0, 0.08);
-$border-radius-base: 8px;
-$spacing-l: 30px;
-$spacing-m: 20px;
-$spacing-s: 10px;
 
 :global(#game-select-screen) {
   display: flex;
@@ -16,40 +12,40 @@ $spacing-s: 10px;
   min-height: 100vh;
   width: 100vw;
   background-color: $color-background;
-  padding: $spacing-l;
+  padding: 20px;
   font-family: Arial, sans-serif;
 }
 
 :global(.select-content) {
   width: 100%;
   max-width: 900px;
-  padding: $spacing-l * 1.5;
+  padding: 20px * 1.5;
   background: $color-card-background;
-  border-radius: $border-radius-base * 2;
+  border-radius: 8px * 2;
   box-shadow: 0 10px 30px $color-shadow;
   text-align: center;
 }
 
 :global(.select-content h1) {
   color: $color-text;
-  margin-bottom: $spacing-l;
+  margin-bottom: 20px;
   font-size: 2.5em;
   font-weight: 600;
 }
 
 :global(.menu-options) {
   display: flex;
-  gap: $spacing-l;
+  gap: 20px;
   justify-content: center;
-  margin-bottom: $spacing-l;
+  margin-bottom: 20px;
 }
 
 :global(.menu-item) {
   flex: 1;
   min-width: 300px;
-  padding: $spacing-l;
+  padding: 20px;
   border: 1px solid $color-border;
-  border-radius: $border-radius-base;
+  border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #eeeeee;
   text-align: left;
@@ -64,22 +60,22 @@ $spacing-s: 10px;
   color: $color-primary;
   font-size: 1.5em;
   margin-top: 0;
-  margin-bottom: $spacing-s;
+  margin-bottom: 10px;
 }
 
 :global(.menu-item p) {
   color: $color-text;
-  margin-bottom: $spacing-m;
+  margin-bottom: 15px;
   line-height: 1.4;
 }
 
 :global(.start-quiz-button) {
-  padding: $spacing-s $spacing-m;
+  padding: 10px 15px;
   font-size: 1.1em;
   font-weight: 600;
   cursor: pointer;
   border: none;
-  border-radius: $border-radius-base;
+  border-radius: 8px;
   background-color: $color-primary;
   color: white;
 
@@ -119,11 +115,11 @@ $spacing-s: 10px;
 
 @media (max-width: 768px) {
   :global(#game-select-screen) {
-    padding: $spacing-m;
+    padding: 15px;
   }
 
   :global(.select-content) {
-    padding: $spacing-m * 1.5;
+    padding: 15px * 1.5;
   }
 
   :global(.select-content h1) {
@@ -132,7 +128,7 @@ $spacing-s: 10px;
 
   :global(.menu-options) {
     flex-direction: column;
-    gap: $spacing-m;
+    gap: 15px;
   }
 
   :global(.menu-item) {
@@ -147,7 +143,7 @@ $spacing-s: 10px;
 
 @media (max-width: 425px) {
   :global(#game-select-screen) {
-    padding: $spacing-s;
+    padding: 10px;
   }
 
   :global(.select-content h1) {
@@ -163,7 +159,7 @@ $spacing-s: 10px;
   }
 
   :global(.start-quiz-button, .back-link) {
-    padding: $spacing-s * 0.75 $spacing-s;
+    padding: 10px * 0.75 10px;
     font-size: 0.9em;
   }
 }

@@ -1,17 +1,15 @@
 @use "sass:math";
-@use "variables";
-
 :global(.puzzle-container) {
   width: 45%;
-  background-color: $card-background;
-  padding: $spacing-l;
-  border-radius: $border-radius-card;
-  box-shadow: $box-shadow-base;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
-  gap: $spacing-xs;
+  gap: 8px;
   overflow-y: auto;
   flex-grow: 1.5;
   min-height: 0;
@@ -21,33 +19,33 @@
 }
 
 :global(.puzzle-image) {
-  width: calc(17.666% - #{math.div($spacing-xs * 5, 6)});
+  width: calc(17.666% - #{math.div(8px * 5, 6)});
   height: auto;
-  border-radius: $border-radius-base;
+  border-radius: 8px;
   object-fit: cover;
   transition: opacity 0.5s ease;
 }
 
 :global(.street-puzzle-image) {
-  width: calc(34% - #{math.div($spacing-xs, 2)});
+  width: calc(34% - #{math.div(8px, 2)});
   height: auto;
-  border-radius: $border-radius-base;
+  border-radius: 8px;
   object-fit: cover;
   transition: opacity 0.5s ease;
 }
 
 @media (max-width: 768px) {
   :global(.puzzle-image) {
-    width: calc(23.666% - #{math.div($spacing-xs * 5, 6)});
+    width: calc(23.666% - #{math.div(8px * 5, 6)});
   }
 }
 
 @media (max-width: 425px) {
   :global(.puzzle-image) {
-    width: calc(30.666% - #{math.div($spacing-xs * 5, 6)});
+    width: calc(30.666% - #{math.div(8px * 5, 6)});
   }
   :global(.street-puzzle-image) {
-    width: calc(50% - #{math.div($spacing-xs, 2)});
+    width: calc(50% - #{math.div(8px, 2)});
   }
 }
 

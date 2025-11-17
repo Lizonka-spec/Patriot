@@ -1,15 +1,12 @@
-@use "variables";
-
 @mixin button-base($bg-color, $text-color: white) {
   background-color: $bg-color;
   color: $text-color;
   border: none;
   padding: 12px 25px;
-  border-radius: $border-radius-base;
-  font-size: $font-size-button;
+  border-radius: 8px;
+  font-size: 1.1em;
   cursor: pointer;
-  transition: background-color $transition-speed $transition-timing,
-    transform $transition-speed $transition-timing;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 
   &:hover:not(:disabled) {
     transform: translateY(-1px);
